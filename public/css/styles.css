@@ -95,3 +95,19 @@ body {
   .carousel-indicators .active {
     background-color: #65DAF9;
   }
+
+  ul {
+    display: flex;
+    align-items : center;
+  }
+
+  .verMais h3 {
+    color: black;
+  }
+
+
+
+
+
+
+
