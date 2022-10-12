@@ -3,6 +3,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.json())
 
 const DB = {
     artigos: [
@@ -169,7 +170,7 @@ app.post("/autores", (req, res) => {
 // ----------UPDATE
 
 // atualizando um artigo ja existente pelo id, com auxilio do método PUT.
-app.put("artigos/:artigoId", (req, res) => {
+app.put("/artigos/:artigoId", (req, res) => {
     const idArtigo = req.params.artigoId;
     if (isNaN(idArtigo)) {
       res.statusCode = 400;
@@ -189,6 +190,7 @@ app.put("artigos/:artigoId", (req, res) => {
             autor, }
             = req.body;
         DB.artigos.splice(artigo, 1, {
+            id,
             titulo,
             categoria,
             desc,
@@ -238,7 +240,7 @@ app.put("/autores/:autorId", (req, res) => {
 // -----------DELETE
 
 // deletando um artigo do servidor com o método DELETE.
-app.delete("artigos/:artigoId", (req, res) => {
+app.delete("/artigos/:artigoId", (req, res) => {
     const idArtigo = req.params.artigoId;
     if (isNaN(idArtigo)) {
       res.statusCode = 400;
