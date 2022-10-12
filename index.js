@@ -224,6 +224,7 @@ app.put("/autores/:autorId", (req, res) => {
             categoria, }
             = req.body;
         DB.autores.splice(autor, 1, {
+            id,
             nome,
             email,
             gravatar,
