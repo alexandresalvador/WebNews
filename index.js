@@ -74,12 +74,12 @@ app.get('/', function (req, res) {
 
 //// Criando uma rota que retorna todos os artigos por meio do método GET.
 app.get('/artigos', function (req, res) {
-     res.send(DB.artigos);
+     res.json(DB.artigos);
     //res.render('artigos');
 });
 // Criando uma rota que retorna todos os autores por meio do método GET.
 app.get('/autores', function (req, res) {
-     res.send(DB.autores);
+     res.json(DB.autores);
     //res.render('autores');
 });
 
