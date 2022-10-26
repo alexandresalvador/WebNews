@@ -91,10 +91,10 @@ app.get('/', function (req, res) {
 //     //res.render('artigos');
 // });
 // Criando uma rota que retorna todos os autores por meio do método GET.
-app.get('/autores', function (req, res) {
-     res.json(DB.autores);
+//app.get('/autores', function (req, res) {
+    //res.json(DB.autores);
     //res.render('autores');
-});
+//});
 
 
 // criando uma rota que retorna um artigo por id por meio do método GET.
