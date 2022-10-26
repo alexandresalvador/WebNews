@@ -1,9 +1,17 @@
 const express = require('express');
+const consign = require('consign');
+const {body, validationResult} = require('express-validator');
+const bodyParser = require('body-parser');
+
+//incializando o express
 const app = express();
 
 app.set('view engine', 'ejs');
+
 app.use(express.static('public'));
 app.use(express.json())
+
+app.use(bodyParser.json())
 
 const DB = {
     artigos: [
@@ -125,7 +133,27 @@ app.get("/autores/:autorId", (req, res) => {
 // ---------CREATE
 
 // criando um novo artigo com o método de requisição POST
-app.post("/artigos", (req, res) => {
+app.post("/artigos", [
+  // validando os dados dos campos dos artigos.
+
+      body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
+      body('titulo').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('titulo').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      
+      body('categoria').notEmpty().withMessage("O campo categoria é obrigatório"),
+      body('categoria').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+
+      body('autor').notEmpty().withMessage("O campo autor é obrigatório"),
+      body('autor').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('autor').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+]
+  ,(req, res) => {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
         const {
             titulo,
             categoria,
@@ -147,7 +175,31 @@ app.post("/artigos", (req, res) => {
 });
 
 // criando um novo autor com o método de requisição POST
-app.post("/autores", (req, res) => {
+app.post("/autores", [
+  // validando os dados dos campos dos autores.
+
+      body('nome').notEmpty().withMessage("O campo nome é obrigatório"),
+      body('nome').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('nome').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      
+      body('email').isEmail().withMessage("O campo email é obrigatório"),
+      body('email').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('email').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+
+      body('perfil').notEmpty().withMessage("O campo perfil é obrigatório"),
+      body('perfil').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('perfil').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+
+      body('categoria').notEmpty().withMessage("O campo categoria é obrigatório"),
+      body('categoria').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
+      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+]
+  ,(req, res) => {
+
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
         const {
             nome,
             email,
