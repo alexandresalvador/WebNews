@@ -2,6 +2,7 @@ const express = require('express');
 const consign = require('consign');
 const {body, validationResult} = require('express-validator');
 const bodyParser = require('body-parser');
+const fs = require('fs')
 
 //incializando o express
 const app = express();
@@ -10,66 +11,70 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(express.json())
-
 app.use(bodyParser.json())
 
-const DB = {
-    artigos: [
-        {
-            id: 1,
-            titulo: "Revolução Agrícola",
-            categoria: "historia",
-            desc: "As Revoluçôes Agrícolas foram as transformações que ocorreram na cultura agrícola que influenciaram na história da humanidade que migraram do sistema de caça[...]",
-            data: "1/10/2022",
-            hora: "13:20",
-            autor: "Ramón",
-        },
-        {
-            id: 2,
-            titulo: "Futuro da Política",
-            categoria: "científica",
-            desc: "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
-            data: "2/3/2022",
-            hora: "14:56",
-            autor: "Luis",
-        },
-        {
-            id: 3,
-            titulo: "Evasão Escolar",
-            categoria: "científica",
-            desc: "Cerca de 244 mil crianças e adolescentes entre 6 e 14 anos estavam fora da escola no segundo trimestre de 2021. Esse número representa[..]",
-            data: "5/9/2022",
-            hora: "15:30",
-            autor: "Carlos",
-        },
-    ],
-    autores: [
-        {
-            id: 1,
-            nome: "Luis",
-            email: "luis.123@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-            perfil: "redator",
-            categoria: "literatura",
-        },
-        {
-            id: 2,
-            nome: "Ramón",
-            email: "ramon.103@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-            perfil: "escritor",
-            categoria: "ficção",
-        },
-        {
-            id: 3,
-            nome: "Carlos",
-            email: "carlos.343@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-            perfil: "admin",
-            categoria: "terror",
-        },
-    ],
-};
+consign()
+ .then("./api")
+ .then("./routes/routes.js")
+ .into(app)
+
+// const DB = {
+//     artigos: [
+//         {
+//             id: 1,
+//             titulo: "Revolução Agrícola",
+//             categoria: "historia",
+//             desc: "As Revoluçôes Agrícolas foram as transformações que ocorreram na cultura agrícola que influenciaram na história da humanidade que migraram do sistema de caça[...]",
+//             data: "1/10/2022",
+//             hora: "13:20",
+//             autor: "Ramón",
+//         },
+//         {
+//             id: 2,
+//             titulo: "Futuro da Política",
+//             categoria: "científica",
+//             desc: "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
+//             data: "2/3/2022",
+//             hora: "14:56",
+//             autor: "Luis",
+//         },
+//         {
+//             id: 3,
+//             titulo: "Evasão Escolar",
+//             categoria: "científica",
+//             desc: "Cerca de 244 mil crianças e adolescentes entre 6 e 14 anos estavam fora da escola no segundo trimestre de 2021. Esse número representa[..]",
+//             data: "5/9/2022",
+//             hora: "15:30",
+//             autor: "Carlos",
+//         },
+//     ],
+//     autores: [
+//         {
+//             id: 1,
+//             nome: "Luis",
+//             email: "luis.123@gmail.com",
+//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+//             perfil: "redator",
+//             categoria: "literatura",
+//         },
+//         {
+//             id: 2,
+//             nome: "Ramón",
+//             email: "ramon.103@gmail.com",
+//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+//             perfil: "escritor",
+//             categoria: "ficção",
+//         },
+//         {
+//             id: 3,
+//             nome: "Carlos",
+//             email: "carlos.343@gmail.com",
+//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+//             perfil: "admin",
+//             categoria: "terror",
+//         },
+//     ],
+// };
 
 
 //Rota que retorna na Home
@@ -81,10 +86,10 @@ app.get('/', function (req, res) {
 // ----------- READ
 
 //// Criando uma rota que retorna todos os artigos por meio do método GET.
-app.get('/artigos', function (req, res) {
-     res.json(DB.artigos);
-    //res.render('artigos');
-});
+// app.get('/artigos', function (req, res) {
+//      res.json(DB.artigos);
+//     //res.render('artigos');
+// });
 // Criando uma rota que retorna todos os autores por meio do método GET.
 app.get('/autores', function (req, res) {
      res.json(DB.autores);
@@ -153,7 +158,7 @@ app.post("/artigos", [
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
-      }
+      }     
         const {
             titulo,
             categoria,
@@ -172,6 +177,7 @@ app.post("/artigos", [
             autor,
     });
   res.send({ message: "Este novo artigo foi adicionado com sucesso!" });
+
 });
 
 // criando um novo autor com o método de requisição POST
