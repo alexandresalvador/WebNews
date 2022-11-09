@@ -1,5 +1,5 @@
 const express = require('express');
-const consign = require('consign');
+// const consign = require('consign');
 const {body, validationResult} = require('express-validator');
 const bodyParser = require('body-parser');
 const fs = require('fs')
@@ -13,68 +13,68 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(bodyParser.json())
 
-consign()
- .then("./api")
- .then("./routes/routes.js")
- .into(app)
+// consign()
+//  .then("./api")
+//  .then("./routes/routes.js")
+//  .into(app)
 
-// const DB = {
-//     artigos: [
-//         {
-//             id: 1,
-//             titulo: "Revolução Agrícola",
-//             categoria: "historia",
-//             desc: "As Revoluçôes Agrícolas foram as transformações que ocorreram na cultura agrícola que influenciaram na história da humanidade que migraram do sistema de caça[...]",
-//             data: "1/10/2022",
-//             hora: "13:20",
-//             autor: "Ramón",
-//         },
-//         {
-//             id: 2,
-//             titulo: "Futuro da Política",
-//             categoria: "científica",
-//             desc: "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
-//             data: "2/3/2022",
-//             hora: "14:56",
-//             autor: "Luis",
-//         },
-//         {
-//             id: 3,
-//             titulo: "Evasão Escolar",
-//             categoria: "científica",
-//             desc: "Cerca de 244 mil crianças e adolescentes entre 6 e 14 anos estavam fora da escola no segundo trimestre de 2021. Esse número representa[..]",
-//             data: "5/9/2022",
-//             hora: "15:30",
-//             autor: "Carlos",
-//         },
-//     ],
-//     autores: [
-//         {
-//             id: 1,
-//             nome: "Luis",
-//             email: "luis.123@gmail.com",
-//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-//             perfil: "redator",
-//             categoria: "literatura",
-//         },
-//         {
-//             id: 2,
-//             nome: "Ramón",
-//             email: "ramon.103@gmail.com",
-//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-//             perfil: "escritor",
-//             categoria: "ficção",
-//         },
-//         {
-//             id: 3,
-//             nome: "Carlos",
-//             email: "carlos.343@gmail.com",
-//             gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
-//             perfil: "admin",
-//             categoria: "terror",
-//         },
-//     ],
-// };
+const DB = {
+    artigos: [
+        {
+            id: 1,
+            titulo: "Revolução Agrícola",
+            categoria: "historia",
+            desc: "As Revoluçôes Agrícolas foram as transformações que ocorreram na cultura agrícola que influenciaram na história da humanidade que migraram do sistema de caça[...]",
+            data: "1/10/2022",
+            hora: "13:20",
+            autor: "Ramón",
+        },
+        {
+            id: 2,
+            titulo: "Futuro da Política",
+            categoria: "científica",
+            desc: "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
+            data: "2/3/2022",
+            hora: "14:56",
+            autor: "Luis",
+        },
+        {
+            id: 3,
+            titulo: "Evasão Escolar",
+            categoria: "científica",
+            desc: "Cerca de 244 mil crianças e adolescentes entre 6 e 14 anos estavam fora da escola no segundo trimestre de 2021. Esse número representa[..]",
+            data: "5/9/2022",
+            hora: "15:30",
+            autor: "Carlos",
+        },
+    ],
+    autores: [
+        {
+            id: 1,
+            nome: "Luis",
+            email: "luis.123@gmail.com",
+            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            perfil: "redator",
+            categoria: "literatura",
+        },
+        {
+            id: 2,
+            nome: "Ramón",
+            email: "ramon.103@gmail.com",
+            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            perfil: "escritor",
+            categoria: "ficção",
+        },
+        {
+            id: 3,
+            nome: "Carlos",
+            email: "carlos.343@gmail.com",
+            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            perfil: "admin",
+            categoria: "terror",
+        },
+    ],
+};
 
 
 //Rota que retorna na Home
@@ -85,16 +85,16 @@ app.get('/', function (req, res) {
 
 // ----------- READ
 
-//// Criando uma rota que retorna todos os artigos por meio do método GET.
-// app.get('/artigos', function (req, res) {
-//      res.json(DB.artigos);
-//     //res.render('artigos');
-// });
-// Criando uma rota que retorna todos os autores por meio do método GET.
-//app.get('/autores', function (req, res) {
-    //res.json(DB.autores);
-    //res.render('autores');
-//});
+// Criando uma rota que retorna todos os artigos por meio do método GET.
+app.get('/artigos', function (req, res) {
+     res.json(DB.artigos);
+    //res.render('artigos');
+});
+//Criando uma rota que retorna todos os autores por meio do método GET.
+app.get('/autores', function (req, res) {
+    res.json(DB.autores);
+    res.render('autores');
+});
 
 
 // criando uma rota que retorna um artigo por id por meio do método GET.
@@ -143,15 +143,15 @@ app.post("/artigos", [
 
       body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
       body('titulo').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('titulo').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('titulo').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
       
       body('categoria').notEmpty().withMessage("O campo categoria é obrigatório"),
       body('categoria').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
 
       body('autor').notEmpty().withMessage("O campo autor é obrigatório"),
       body('autor').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('autor').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('autor').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
 ]
   ,(req, res) => {
 
@@ -178,6 +178,11 @@ app.post("/artigos", [
     });
   res.send({ message: "Este novo artigo foi adicionado com sucesso!" });
 
+  fs.writeFile("artigos.json", JSON.stringify(DB.artigos), err => {
+    if (err) throw err; 
+    console.log("Arquivo de Artigos concluido"); 
+  });  
+
 });
 
 // criando um novo autor com o método de requisição POST
@@ -186,19 +191,19 @@ app.post("/autores", [
 
       body('nome').notEmpty().withMessage("O campo nome é obrigatório"),
       body('nome').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('nome').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('nome').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
       
       body('email').isEmail().withMessage("O campo email é obrigatório"),
       body('email').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('email').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('email').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
 
       body('perfil').notEmpty().withMessage("O campo perfil é obrigatório"),
       body('perfil').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('perfil').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('perfil').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
 
       body('categoria').notEmpty().withMessage("O campo categoria é obrigatório"),
       body('categoria').isLength({ min: 3 }).withMessage("Campo precisa ter pelo menos 3 caracteres"),
-      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter pelo até 25 caracteres"),
+      body('categoria').isLength({ max: 25 }).withMessage("Campo precisa ter até 25 caracteres"),
 ]
   ,(req, res) => {
 
@@ -221,7 +226,13 @@ app.post("/autores", [
             perfil,
             categoria,
     });
+
   res.send({ message: "Este novo autor foi adicionado com sucesso!" });
+
+  fs.writeFile("autores.json", JSON.stringify(DB.autores), err => {
+    if (err) throw err; 
+    console.log("Arquivo de Autores concluido"); 
+  });  
 });
 
 
@@ -258,6 +269,11 @@ app.put("/artigos/:artigoId", (req, res) => {
         });
         res.statusCode = 200;
         res.json({ message: "Este artigo foi atualizado com sucesso!" });
+
+        // fs.rename("artigos.json.JSON.stringify(DB.artigos), ", err => {
+        //   if (err) throw err; 
+        //   console.log("Arquivo de Artigos atualizado"); 
+        // });  
       }
     }
 });
@@ -291,6 +307,11 @@ app.put("/autores/:autorId", (req, res) => {
         });
         res.statusCode = 200;
         res.json({ message: "Este autor foi atualizado com sucesso!" });
+
+        // fs.rename("autores.json", JSON.stringify(DB.autores), err => {
+        //   if (err) throw err; 
+        //   console.log("Arquivo de Autores atualizado"); 
+        // });  
       }
     }
 });

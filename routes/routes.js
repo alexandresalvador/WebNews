@@ -9,7 +9,7 @@ module.exports = (app) => {
 
     app.route("/autores")
     .get(app.api.autores.get)
-    //  .post(app.api.autores.save)
+    // .post(app.api.autores.save)
     //  .put(app.api.autores.update)
     //  .delete(app.api.autores.delete)
 }
