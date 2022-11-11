@@ -3,7 +3,7 @@ const express = require('express');
 const {body, validationResult} = require('express-validator');
 const bodyParser = require('body-parser');
 const fs = require('fs')
-
+const authores = require("./autores.json")
 //incializando o express
 const app = express();
 
@@ -53,7 +53,7 @@ const DB = {
             id: 1,
             nome: "Luis",
             email: "luis.123@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            gravatar: "https://www.google.com/url/luis",
             perfil: "redator",
             categoria: "literatura",
         },
@@ -61,7 +61,7 @@ const DB = {
             id: 2,
             nome: "Ramón",
             email: "ramon.103@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            gravatar: "https://www.google.com/url/ramon",
             perfil: "escritor",
             categoria: "ficção",
         },
@@ -69,7 +69,7 @@ const DB = {
             id: 3,
             nome: "Carlos",
             email: "carlos.343@gmail.com",
-            gravatar: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gratispng.com%2Fpng-htlez1%2F&psig=AOvVaw3aHR-IMDsaBdXxs7069vTF&ust=1665599507910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCMCZ0bjo2PoCFQAAAAAdAAAAABAD",
+            gravatar: "https://www.google.com/url/carlos",
             perfil: "admin",
             categoria: "terror",
         },
@@ -93,7 +93,14 @@ app.get('/artigos', function (req, res) {
 //Criando uma rota que retorna todos os autores por meio do método GET.
 app.get('/autores', function (req, res) {
     res.json(DB.autores);
-    res.render('autores');
+    // res.render('autores');
+
+    fs.readFile("autores.json", function(err, data) {
+      if (err) throw err;
+      const autors = JSON.parse(data);
+        
+      console.log(autors); 
+  });
 });
 
 
@@ -218,7 +225,8 @@ app.post("/autores", [
             perfil,
             categoria, }
             = req.body;
-    DB.autores.push({
+    // DB.autores.push({
+      authores.push({
       id: Math.floor(Math.random() * 10 + 1),
             nome,
             email,
@@ -229,7 +237,8 @@ app.post("/autores", [
 
   res.send({ message: "Este novo autor foi adicionado com sucesso!" });
 
-  fs.writeFile("autores.json", JSON.stringify(DB.autores), err => {
+ 
+  fs.writeFile("autores.json", JSON.stringify(authores), err => {
     if (err) throw err; 
     console.log("Arquivo de Autores concluido"); 
   });  
