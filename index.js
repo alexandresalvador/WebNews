@@ -4,6 +4,7 @@ const {body, validationResult} = require('express-validator');
 const bodyParser = require('body-parser');
 const fs = require('fs')
 const authores = require("./autores.json")
+const arthigos = require("./artigos.json")
 //incializando o express
 const app = express();
 
@@ -87,12 +88,19 @@ app.get('/', function (req, res) {
 
 // Criando uma rota que retorna todos os artigos por meio do método GET.
 app.get('/artigos', function (req, res) {
-     res.json(DB.artigos);
+    res.json(arthigos);
     //res.render('artigos');
+
+    fs.readFile("artigos.json", function(err, data) {
+      if (err) throw err;
+      const artigs = JSON.parse(data);
+        
+      console.log(artigs); 
+  });
 });
 //Criando uma rota que retorna todos os autores por meio do método GET.
 app.get('/autores', function (req, res) {
-    res.json(DB.autores);
+    res.json(authores);
     // res.render('autores');
 
     fs.readFile("autores.json", function(err, data) {
@@ -113,7 +121,7 @@ app.get("/artigos/:artigoId", (req, res) => {
     } 
     else {
       const id = parseInt(idArtigo);
-      const artigo = DB.artigos.find((index) => index.id === id);
+      const artigo = arthigos.find((index) => index.id === id);
             if (artigo !== undefined) {
                 res.statusCode =  200;
                 res.json(artigo) ;
@@ -132,7 +140,7 @@ app.get("/autores/:autorId", (req, res) => {
     } 
     else {
       const id = parseInt(idAutor);
-      const autor = DB.autores.find((index) => index.id === id);
+      const autor = authores.find((index) => index.id === id);
             if (autor !== undefined) {
                   res.statusCode =  200;
                   res.json(autor) ;
@@ -174,8 +182,8 @@ app.post("/artigos", [
             hora,
             autor, }
             = req.body;
-    DB.artigos.push({
-      id: Math.floor(Math.random() * 10 + 1),
+    arthigos.push({
+      id: Math.floor(Math.random() * 100 + 1),
             titulo,
             categoria,
             desc,
@@ -185,7 +193,7 @@ app.post("/artigos", [
     });
   res.send({ message: "Este novo artigo foi adicionado com sucesso!" });
 
-  fs.writeFile("artigos.json", JSON.stringify(DB.artigos), err => {
+  fs.writeFile("artigos.json", JSON.stringify(arthigos), err => {
     if (err) throw err; 
     console.log("Arquivo de Artigos concluido"); 
   });  
@@ -225,9 +233,9 @@ app.post("/autores", [
             perfil,
             categoria, }
             = req.body;
-    // DB.autores.push({
+    // authores.push({
       authores.push({
-      id: Math.floor(Math.random() * 10 + 1),
+      id: Math.floor(Math.random() * 100 + 1),
             nome,
             email,
             gravatar,
@@ -255,7 +263,7 @@ app.put("/artigos/:artigoId", (req, res) => {
       res.send("O id informado não é um número.");
     } else {
       const id = parseInt(idArtigo);
-      const artigo = DB.artigos.findIndex((index) => index.id === id);
+      const artigo = arthigos.findIndex((index) => index.id === id);
       if (artigo === -1) {
         res.sendStatus(404);
       } else {
@@ -267,7 +275,7 @@ app.put("/artigos/:artigoId", (req, res) => {
             hora,
             autor, }
             = req.body;
-        DB.artigos.splice(artigo, 1, {
+        arthigos.splice(artigo, 1, {
             id,
             titulo,
             categoria,
@@ -279,10 +287,10 @@ app.put("/artigos/:artigoId", (req, res) => {
         res.statusCode = 200;
         res.json({ message: "Este artigo foi atualizado com sucesso!" });
 
-        // fs.rename("artigos.json.JSON.stringify(DB.artigos), ", err => {
-        //   if (err) throw err; 
-        //   console.log("Arquivo de Artigos atualizado"); 
-        // });  
+        fs.writeFile("artigos.json", JSON.stringify(arthigos), err => {
+          if (err) throw err; 
+          console.log("O seu Arquivo de Artigos foi atualizado!"); 
+        });  
       }
     }
 });
@@ -295,7 +303,7 @@ app.put("/autores/:autorId", (req, res) => {
       res.send("O id informado não é um número.");
     } else {
       const id = parseInt(idAutor);
-      const autor = DB.autores.findIndex((index) => index.id === id);
+      const autor = authores.findIndex((index) => index.id === id);
       if (autor === -1) {
         res.sendStatus(404);
       } else {
@@ -306,7 +314,7 @@ app.put("/autores/:autorId", (req, res) => {
             perfil,
             categoria, }
             = req.body;
-        DB.autores.splice(autor, 1, {
+        authores.splice(autor, 1, {
             id,
             nome,
             email,
@@ -317,10 +325,10 @@ app.put("/autores/:autorId", (req, res) => {
         res.statusCode = 200;
         res.json({ message: "Este autor foi atualizado com sucesso!" });
 
-        // fs.rename("autores.json", JSON.stringify(DB.autores), err => {
-        //   if (err) throw err; 
-        //   console.log("Arquivo de Autores atualizado"); 
-        // });  
+        fs.writeFile("autores.json", JSON.stringify(authores), err => {
+          if (err) throw err; 
+          console.log("O seu Arquivo de Autores foi atualizado"); 
+        });  
       }
     }
 });
@@ -336,13 +344,18 @@ app.delete("/artigos/:artigoId", (req, res) => {
       res.send("O id informado não é um número.");
     } else {
       const id = parseInt(idArtigo);
-      const artigo = DB.artigos.findIndex((index) => index.id === id);
+      const artigo = arthigos.findIndex((index) => index.id === id);
       if (artigo === -1) {
         res.sendStatus(404);
       } else {
-        DB.artigos.splice(artigo, 1);
+        arthigos.splice(artigo, 1);
         res.statusCode = 200;
         res.json({ message: "Este artigo foi removido com sucesso!" });
+
+        fs.writeFile("artigos.json", JSON.stringify(arthigos), err => {
+          if (err) throw err; 
+          console.log("Um de seus artigos foi deletado com sucesso do arquivo."); 
+        });  
       }
     }
 });
@@ -355,13 +368,18 @@ app.delete("/autores/:autorId", (req, res) => {
       res.send("O id informado não é um número.");
     } else {
       const id = parseInt(idAutor);
-      const autor = DB.autores.findIndex((index) => index.id === id);
+      const autor = authores.findIndex((index) => index.id === id);
       if (autor === -1) {
         res.sendStatus(404);
       } else {
-        DB.autores.splice(autor, 1);
+        authores.splice(autor, 1);
         res.statusCode = 200;
         res.json({ message: "Este autor foi removido com sucesso!" });
+
+        fs.writeFile("autores.json", JSON.stringify(authores), err => {
+          if (err) throw err; 
+          console.log("Um de seus autores foi deletado com sucesso do arquivo."); 
+        });  
       }
     }
 });
