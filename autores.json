@@ -24,7 +24,7 @@
         "categoria": "terror"
     },
     {
-        "id": 8,
+        "id": 80,
         "nome": "Cristofer",
         "email": "cristofer.123@gmail.com",
         "gravatar": "https://www.google.com/url/cristofer",
@@ -32,7 +32,7 @@
         "categoria": "literatura"
     },
     {
-        "id": 1,
+        "id": 17,
         "nome": "Cristofer2",
         "email": "cristofer.123@gmail.com",
         "gravatar": "https://www.google.com/url/cristofer",
@@ -40,19 +40,43 @@
         "categoria": "literatura"
     },
     {
-        "id": 9,
-        "nome": "Alexandre",
-        "email": "alexandre.123@gmail.com",
-        "gravatar": "https://www.google.com/url/alexandre",
+        "id": 91,
+        "nome": "Carlos Gimenez",
+        "email": "teste.123@gmail.com",
+        "gravatar": "https://www.google.com/url/teste",
         "perfil": "redator",
-        "categoria": "romance"
+        "categoria": "comedia"
     },
     {
-        "id": 7,
+        "id": 72,
         "nome": "Alexandre Salvador",
         "email": "teste.123@gmail.com",
         "gravatar": "https://www.google.com/url/teste",
         "perfil": "redator",
         "categoria": "comedia"
+    },
+    {
+        "id": 63,
+        "nome": "teste1",
+        "email": "teste.123@gmail.com",
+        "gravatar": "https://www.google.com/url/teste",
+        "perfil": "redator",
+        "categoria": "comedia"
+    },
+    {
+        "id": 53,
+        "nome": "teste6",
+        "email": "teste.123@gmail.com",
+        "gravatar": "https://www.google.com/url/teste",
+        "perfil": "redator",
+        "categoria": "comedia"
+    },
+    {
+        "id": 56,
+        "nome": "Igor Machado",
+        "email": "igor@gmail.com",
+        "gravatar": "https://www.google.com/url/igor",
+        "perfil": "redator",
+        "categoria": "romance"
     }
 ]

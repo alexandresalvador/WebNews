@@ -150,6 +150,12 @@ app.get("/autores/:autorId", (req, res) => {
          }
    });
 
+
+// criando uma rota que filtra categoria e nome de um autor passando a string por meio do método GET.
+// app,get("/autores?$filter=substring(‘Valor’, Propriedade)", (req,res) +>{
+
+// });
+
 // ---------CREATE
 
 // criando um novo artigo com o método de requisição POST
@@ -323,7 +329,7 @@ app.put("/autores/:autorId", (req, res) => {
             categoria,
         });
         res.statusCode = 200;
-        res.json({ message: "Este autor foi atualizado com sucesso!" });
+        res.json({ message: `O autor ${ req.body.nome } foi atualizado com sucesso por put!` });
 
         fs.writeFile("autores.json", JSON.stringify(authores), err => {
           if (err) throw err; 
@@ -333,6 +339,66 @@ app.put("/autores/:autorId", (req, res) => {
     }
 });
 
+// PATCH
+// atualizando um autor ja existente pelo id, com auxilio do método Patch.
+app.patch("/autores/:autorId", (req, res) => {
+  const idAutor = req.params.autorId;
+
+  // const nomeAutor = req.params.autorNome;
+  // const emailAutor = req.params.autorEmail;
+  // const gravAutor = req.params.autorGravatar;
+  // const perfAutor = req.params.autorPerfil;
+  // const catAutor = req.params.autorCategoria;
+
+  if (isNaN(idAutor)) {
+    res.statusCode = 400;
+    res.send("O id informado não é um número.");
+  } else {
+    const id = parseInt(idAutor)
+
+    // const nome = nomeAutor
+    // const email = emailAutor
+    // const gravatar = gravAutor
+    // const perfil = perfAutor
+    // const categoria = catAutor
+    
+    const autor = authores.findIndex((index) => index.id === id);
+                  
+                  // authores.findIndex((index) => index.nome === nome);
+                  // authores.findIndex((index) => index.email === email);
+                  // authores.findIndex((index) => index.gravatar === gravatar);
+                  // authores.findIndex((index) => index.perfil === perfil);
+                  // authores.findIndex((index) => index.categoria === categoria);
+
+    if (autor === -1) {
+      res.sendStatus(404);
+    } else {
+      const {
+        nome,
+        email,
+        gravatar,
+        perfil,
+        categoria,
+           }
+          = req.body;
+      authores.splice(autor, 1, {
+          id,
+          nome,
+          email,
+          gravatar,
+          perfil,
+          categoria,
+      });
+      res.statusCode = 200;
+      res.json({ message: `O autor ${ req.body.nome } foi atualizado com sucesso por patch!` });
+
+      fs.writeFile("autores.json", JSON.stringify(authores), err => {
+        if (err) throw err; 
+        console.log("O seu Arquivo de Autores foi atualizado"); 
+      });  
+    }
+  }
+});
 
 // -----------DELETE
 
