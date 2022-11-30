@@ -19,6 +19,37 @@ app.use(bodyParser.json())
 //  .then("./routes/routes.js")
 //  .into(app)
 
+// FILTROS - ARTIGOS 
+
+app.get('/artigos', (req, res, next) => {
+  const filters = req.query;
+  const filteredArts = arthigos.filter(user => {
+  let isValid = true;
+    for (key in filters) {
+      isValid = isValid && user[key] == filters[key];
+    }
+    return isValid;
+  });
+  res.json(filteredArts);
+
+});
+
+// FILTROS - AUTORES
+
+app.get('/autores', (req, res, next) => {
+  const filters = req.query;
+  const filteredAutors = authores.filter(user => {
+  let isValid = true;
+    for (key in filters) {
+      isValid = isValid && user[key] == filters[key];
+    }
+    return isValid;
+  });
+  res.json(filteredAutors);
+
+});
+
+
 const DB = {
     artigos: [
         {
@@ -110,7 +141,6 @@ app.get('/autores', function (req, res) {
       console.log(autors); 
   });
 });
-
 
 // criando uma rota que retorna um artigo por id por meio do método GET.
 app.get("/artigos/:artigoId", (req, res) => {

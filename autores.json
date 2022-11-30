@@ -24,7 +24,7 @@
         "categoria": "terror"
     },
     {
-        "id": 80,
+        "id": 4,
         "nome": "Cristofer",
         "email": "cristofer.123@gmail.com",
         "gravatar": "https://www.google.com/url/cristofer",
@@ -32,7 +32,7 @@
         "categoria": "literatura"
     },
     {
-        "id": 17,
+        "id": 5,
         "nome": "Cristofer2",
         "email": "cristofer.123@gmail.com",
         "gravatar": "https://www.google.com/url/cristofer",
@@ -40,7 +40,7 @@
         "categoria": "literatura"
     },
     {
-        "id": 91,
+        "id": 6,
         "nome": "Carlos Gimenez",
         "email": "teste.123@gmail.com",
         "gravatar": "https://www.google.com/url/teste",
@@ -48,35 +48,123 @@
         "categoria": "comedia"
     },
     {
-        "id": 72,
+        "id": 7,
         "nome": "Alexandre Salvador",
         "email": "teste.123@gmail.com",
         "gravatar": "https://www.google.com/url/teste",
         "perfil": "redator",
+        "categoria": "terror"
+    },
+    {
+        "id": 8,
+        "nome": "Carlos",
+        "email": "carlosaugusto.123@gmail.com",
+        "gravatar": "https://www.google.com/url/crlos",
+        "perfil": "admin",
         "categoria": "comedia"
     },
     {
-        "id": 63,
-        "nome": "teste1",
-        "email": "teste.123@gmail.com",
-        "gravatar": "https://www.google.com/url/teste",
-        "perfil": "redator",
-        "categoria": "comedia"
-    },
-    {
-        "id": 53,
+        "id": 9,
         "nome": "teste6",
         "email": "teste.123@gmail.com",
         "gravatar": "https://www.google.com/url/teste",
         "perfil": "redator",
-        "categoria": "comedia"
+        "categoria": "terror"
     },
     {
-        "id": 56,
+        "id": 10,
         "nome": "Igor Machado",
         "email": "igor@gmail.com",
         "gravatar": "https://www.google.com/url/igor",
+        "perfil": "admin",
+        "categoria": "romance"
+    },
+    {
+        "id": 11,
+        "nome": "Cristaldo",
+        "email": "cristaldo.123@gmail.com",
+        "gravatar": "https://www.google.com/url/cristaldo",
+        "perfil": "redator",
+        "categoria": "literatura"
+    },
+    {
+        "id": 12,
+        "nome": "Jeremias",
+        "email": "jere.123@gmail.com",
+        "gravatar": "https://www.google.com/url/jere",
+        "perfil": "admin",
+        "categoria": "literatura"
+    },
+    {
+        "id": 13,
+        "nome": "aloisio",
+        "email": "alo.123@gmail.com",
+        "gravatar": "https://www.google.com/url/alo",
+        "perfil": "redator",
+        "categoria": "terror"
+    },
+    {
+        "id": 14,
+        "nome": "Carlos",
+        "email": "car.1234@gmail.com",
+        "gravatar": "https://www.google.com/url/car",
         "perfil": "redator",
         "categoria": "romance"
+    },
+    {
+        "id": 15,
+        "nome": "Josialdo Carlos",
+        "email": "car.123@gmail.com",
+        "gravatar": "https://www.google.com/url/car",
+        "perfil": "nao possui",
+        "categoria": "romance"
+    },
+    {
+        "id": 16,
+        "nome": "Carlos Eduardo",
+        "email": "car.123@gmail.com",
+        "gravatar": "https://www.google.com/url/car",
+        "perfil": "admin",
+        "categoria": "literatura"
+    },
+    {
+        "id": 17,
+        "nome": "Amarildo",
+        "email": "amarildo.123@gmail.com",
+        "gravatar": "https://www.google.com/url/amarildo",
+        "perfil": "redator",
+        "categoria": "literatura"
+    },
+    {
+        "id": 18,
+        "nome": "Augusto Carlos",
+        "email": "augusto.123@gmail.com",
+        "gravatar": "https://www.google.com/url/augusto",
+        "perfil": "redator",
+        "categoria": "romance"
+    },
+    {
+        "id": 19,
+        "nome": "Vlad Augusto",
+        "email": "vlad.123@gmail.com",
+        "gravatar": "https://www.google.com/url/vlad",
+        "perfil": "admin",
+        "categoria": "literatura"
+    },
+    {
+        "id": 20,
+        "nome": "Carlos",
+        "email": "carlinhos.432@gmail.com",
+        "gravatar": "https://www.google.com/url/loscar",
+        "perfil": "admin",
+        "categoria": "romance"
+    },
+    {
+        "id": 21,
+        "nome": "José Amaral",
+        "email": "josema.123@gmail.com",
+        "gravatar": "https://www.google.com/url/josema",
+        "perfil": "admin",
+        "categoria": "literatura"
     }
 ]

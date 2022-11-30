@@ -27,39 +27,201 @@
         "autor": "Carlos"
     },
     {
+        "id": 4,
+        "titulo": "Descobrimento do Brasil",
+        "categoria": "comedia",
+        "desc": "sem descrição",
+        "data": "19/10/2021",
+        "hora": "11:30",
+        "autor": "Valdomiro"
+    },
+    {
+        "id": 5,
+        "titulo": "O Palhaço",
+        "categoria": "ficcao",
+        "desc": "O palhaço",
+        "data": "19/10/2021",
+        "hora": "11:30",
+        "autor": "José"
+    },
+    {
+        "id": 6,
+        "titulo": "Os Gigantes",
+        "categoria": "ficcao",
+        "desc": "Os gigantes",
+        "data": "14/10/2022",
+        "hora": "11:30",
+        "autor": "Carlos"
+    },
+    {
+        "id": 7,
+        "titulo": "Floresta",
+        "categoria": "ficcao",
+        "desc": "A floresta",
+        "data": "11/10/2022",
+        "hora": "11:30",
+        "autor": "Carlos"
+    },
+    {
+        "id": 8,
+        "titulo": "A Neblina",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "19/10/2021",
+        "hora": "11:30",
+        "autor": "Carlos"
+    },
+    {
+        "id": 9,
+        "titulo": "Dias de luta",
+        "categoria": "historia",
+        "desc": "sem descrição",
+        "data": "15/10/2022",
+        "hora": "11:30",
+        "autor": "Luis"
+    },
+    {
         "id": 10,
-        "titulo": "Ola, DEVs",
-        "categoria": "comedia",
-        "desc": "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
+        "titulo": "A historia",
+        "categoria": "ficcao",
+        "desc": "descriçao indisponivel",
         "data": "19/10/2021",
         "hora": "11:30",
-        "autor": "Valdomiro Torres"
+        "autor": "Valdomiro"
     },
     {
-        "id": 3,
-        "titulo": "Fatos de Joinville",
-        "categoria": "literatura",
-        "desc": "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
-        "data": "19/10/2021",
+        "id": 11,
+        "titulo": "Aliens",
+        "categoria": "ficcao",
+        "desc": "descriçao indisponivel",
+        "data": "14/10/2022",
         "hora": "11:30",
-        "autor": "Joao Torres"
+        "autor": "Carlos"
     },
     {
-        "id": 52,
-        "titulo": "Gigantes",
+        "id": 12,
+        "titulo": "O forasteiro",
         "categoria": "comedia",
-        "desc": "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
+        "desc": "sem descrição",
         "data": "19/10/2021",
         "hora": "11:30",
-        "autor": "Valdomiro Torres"
+        "autor": "Carlos"
     },
     {
-        "id": 65,
-        "titulo": "esse agora é o ultimo post",
+        "id": 13,
+        "titulo": "Virtudes",
+        "categoria": "historia",
+        "desc": "sem descrição",
+        "data": "10/10/2022",
+        "hora": "11:30",
+        "autor": "José"
+    },
+    {
+        "id": 14,
+        "titulo": "Entre amigos",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "15/10/2022",
+        "hora": "12:30",
+        "autor": "Roberto"
+    },
+    {
+        "id": 15,
+        "titulo": "Rio de Janeiro",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "13/10/2022",
+        "hora": "11:30",
+        "autor": "Carlos Augusto"
+    },
+    {
+        "id": 16,
+        "titulo": "Romeu e Julieta",
         "categoria": "comedia",
-        "desc": "A juventude brasileira está inconformada com o país em que vive. Afastada dos partidos e da política, pouco quer saber dos fundamentos da economia e do[...]",
+        "desc": "???????",
         "data": "19/10/2021",
         "hora": "11:30",
-        "autor": "Valdomiro Torres"
+        "autor": "Valdomiro"
+    },
+    {
+        "id": 17,
+        "titulo": "romeu y julieta",
+        "categoria": "comedia",
+        "desc": "???????",
+        "data": "19/10/2021",
+        "hora": "11:30",
+        "autor": "Valdomiro"
+    },
+    {
+        "id": 18,
+        "titulo": "Da Terra a Lua",
+        "categoria": "científica",
+        "desc": "sem descrição",
+        "data": "19/10/2022",
+        "hora": "12:30",
+        "autor": "Valdomiro"
+    },
+    {
+        "id": 19,
+        "titulo": "novo artigo",
+        "categoria": "comedia",
+        "desc": "???????",
+        "data": "19/11/2021",
+        "hora": "12:30",
+        "autor": "Daniel Torres"
+    },
+    {
+        "id": 20,
+        "titulo": "A iliada",
+        "categoria": "historia",
+        "desc": "???????",
+        "data": "19/11/2021",
+        "hora": "12:30",
+        "autor": "Daniel Torres"
+    },
+    {
+        "id": 21,
+        "titulo": "Dois irmãos",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "19/11/2021",
+        "hora": "10:30",
+        "autor": "Ramón"
+    },
+    {
+        "id": 22,
+        "titulo": "Quatro irmãos",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "19/11/2021",
+        "hora": "10:30",
+        "autor": "Ramón"
+    },
+    {
+        "id": 23,
+        "titulo": "Duas Torres",
+        "categoria": "ficcao",
+        "desc": "sem descrição",
+        "data": "10/11/2022",
+        "hora": "10:30",
+        "autor": "Lucas"
+    },
+    {
+        "id": 24,
+        "titulo": "Jogo Perigoso",
+        "categoria": "científica",
+        "desc": "sem descrição",
+        "data": "25/11/2022",
+        "hora": "12:30",
+        "autor": "Luis"
+    },
+    {
+        "id": 25,
+        "titulo": "Juizo Final",
+        "categoria": "suspense",
+        "desc": "sem descrição",
+        "data": "28/11/2022",
+        "hora": "10:30",
+        "autor": "Lucas"
     }
 ]
