@@ -1,10 +1,11 @@
 const express = require('express');
-// const consign = require('consign');
+const consign = require('consign');
 const {body, validationResult} = require('express-validator');
 const bodyParser = require('body-parser');
 const fs = require('fs')
 const authores = require("./autores.json")
 const arthigos = require("./artigos.json")
+const database = require("./config/database");
 //incializando o express
 const app = express();
 
@@ -14,10 +15,11 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(bodyParser.json())
 
-// consign()
-//  .then("./api")
-//  .then("./routes/routes.js")
-//  .into(app)
+app.database = database;
+consign()
+ .then("./api")
+ .then("./routes/routes.js")
+ .into(app)
 
 // FILTROS - ARTIGOS 
 
