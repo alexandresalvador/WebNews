@@ -50,7 +50,8 @@ module.exports = (app) => {
 
         autor.gravatar = "autor.jpg";
 
-
+        
+        // gravando no banco de dados
         app
         .database("autores")
         .insert(autor)

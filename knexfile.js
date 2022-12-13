@@ -13,7 +13,7 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'mongodb',
     connection: {
       database: 'apinode',
       user:     'username',
@@ -29,7 +29,7 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'mongodb',
     connection: {
       database: 'apinode',
       user:     'username',
@@ -43,5 +43,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
